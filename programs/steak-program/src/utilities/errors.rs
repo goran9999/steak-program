@@ -4,4 +4,6 @@ use anchor_lang::prelude::*;
 pub enum SteakError {
     #[msg("Invalid collection update authority")]
     InvalidCollectionAuthority,
+    #[msg("Invalid collection symbol")]
+    InvalidCollectionSymbol,
 }

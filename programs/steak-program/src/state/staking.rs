@@ -9,6 +9,9 @@ pub struct StakingConfig {
     pub custom_staking_increase: CustomStakingIncrease,
     pub staking_reward: u64,
     pub fee_amount: u8,
+    pub reward_mint: Pubkey,
+    pub increase_amount: Option<u64>,
+    pub increase_count: Option<u64>,
 }
 
 #[derive(AnchorDeserialize, AnchorSerialize, TryFromPrimitive, IntoPrimitive, Clone)]
@@ -21,12 +24,12 @@ pub enum StakingPeriodReward {
     Yearly,
 }
 
-#[derive(AnchorDeserialize, AnchorSerialize, Clone)]
+#[derive(AnchorDeserialize, AnchorSerialize, Clone, TryFromPrimitive, IntoPrimitive)]
 #[repr(u8)]
 pub enum CustomStakingIncrease {
     None,
     Double,
-    AddAmount(u64),
-    MultiplyAmount(u64),
-    AddPerNftAmount(u64),
+    AddAmount,
+    MultiplyAmount,
+    AddPerNftAmount,
 }
