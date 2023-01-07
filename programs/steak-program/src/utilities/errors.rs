@@ -6,4 +6,6 @@ pub enum SteakError {
     InvalidCollectionAuthority,
     #[msg("Invalid collection symbol")]
     InvalidCollectionSymbol,
+    #[msg("Wrong reward mint")]
+    WrongRewardMint,
 }
